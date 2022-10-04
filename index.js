@@ -56,6 +56,10 @@ app.get('/', async (req,res)=>{
     });
 })
 
+app.post('/addValues',(req, res)=>{
+    res.render('index')
+})
+
 app.get('/register', (req,res)=>{
     res.render('register');
 })
