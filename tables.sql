@@ -1,9 +1,7 @@
--- USER CREDENTIALS TABLE 
-CREATE TABLE users
-(
-id serial not null primary key,
-FirstName varchar(255),
-LastName varchar(255),
-EmailAdress varchar(255),
-UserPassword varchar(255)
+-- registrations table
+Create table user_reg(
+code text not null primary key,
+firstname text not null,
+lastname text not null,
+email text not null
 );
