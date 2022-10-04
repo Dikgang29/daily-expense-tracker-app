@@ -52,12 +52,23 @@ app.use(session({
 
 app.get('/', async (req,res)=>{
     // console.log(await dbFunction.all())
+    const categories = await dbFunction.allFromCategory()
     res.render('index',{
+        // categories : dbFunction.allFromCategory()
+        categories
     });
 })
 
 app.post('/addValues',(req, res)=>{
     res.render('index')
+})
+
+app.post('/addCategories', (req,res)=>{
+
+    const {categoryAdd} = req.body;
+
+    dbFunction.addCategory(categoryAdd);
+    res.redirect('/')
 })
 
 app.get('/register', (req,res)=>{

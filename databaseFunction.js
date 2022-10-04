@@ -31,10 +31,28 @@ module.exports = function DatabaseQuery(db){
     const allUsers = await db.any('SELECT * FROM user_reg;')
     return allUsers
     }
+
+    // category table queries
+
+    async function addCategory(category){
+        await db.none('insert into categories (category_name) values($1)', category)
+
+    }
+
+    async function allFromCategory(){
+        const selectAllCategory = await db.any('select * from categories;')
+        return selectAllCategory;
+    }
+
+
+
     return{
         storeInDatabase,
         all,
         userLogIn,
-        getUserByEmailCode
+        getUserByEmailCode,
+        // category table
+        addCategory,
+        allFromCategory
     }
 }

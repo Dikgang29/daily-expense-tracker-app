@@ -14,22 +14,42 @@
         <a href="/register">Register</a>
         </div>
 
+        <div class="container">
+            <h5>Add More categories</h5>
+
+
+            <form action="/addCategories" method="post">
+            <input type="text" name="categoryAdd">
+        <button type="submit" class="btn btn-primary">Add</button>
+            
+            </form>
+        </div>
+
+
     <div class="container">
+
+        <div class="container">
+            <h5>Add the expense</h5>
+        </div>
         <form action="/addValues" method="post" class="row g-3">
         <div class="col-auto">
-            <label for="categotyId">Category :</label>
-        <select class="form-select" aria-label="Default select example" name="categotyId">
-            <option selected>SELECT</option>
-            <option value=""></option>
+        <select class="form-select" aria-label="Default select example" name="categotyId" id="categotyId">
+            {{!-- <label for="categotyId">Category :</label> --}}
+            <option value="" selected>SELECT CATEGORY</option>
+            {{#each categories}}
+            <option value="{{id}}">{{category_name}}</option>
+            {{/each}}
         </select>
         </div>
-        <div>
-            <label for="data">Date</label>
-            <input type="date" name="" id="">
+        <div class="col-auto" >
+            {{!-- date conatiner  --}}
+            <label for="date">Date</label>
+            <input type="date" name="date" id="date">
         </div>
-        <div>
+        <div class="col-auto">
+            {{!-- expense conatiner  --}}
             <label for="expense">Expense:</label>
-            <input type="text" name="" id="">
+            <input type="number" step=".01" name="" id="">
         </div>
         </form>
     </div>
