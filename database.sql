@@ -14,7 +14,12 @@ grant all privileges on database expense_tracker to tracker;
 GRANT ALL PRIVILEGES on SEQUENCES registrations_id_seq TO tracker;
 GRANT ALL PRIVILEGES on TABLE user_reg TO tracker;
 
+-- category table 
 GRANT ALL PRIVILEGES on TABLE categories TO tracker;
+GRANT ALL PRIVILEGES on SEQUENCE categories_id_seq TO tracker;
+
+
+
 
 
 
