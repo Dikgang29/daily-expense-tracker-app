@@ -15,10 +15,12 @@ Create table categories(
 -- table that would store the expense dor a certain day
 Create table expenses(
     id serial primary key,
-    code_id VARCHAR ( 50 ) not null,
-    category_id integer,
+    code_id VARCHAR ( 50 ),
+    category_id integer not null,
     expense_date date not null default current_date,
-    daily_expense decimal(5,2),
+    daily_expense decimal(5,2) not null,
     FOREIGN KEY (code_id) REFERENCES user_reg(code),
     FOREIGN KEY (category_id) REFERENCES categories(id)
 );
+
+-- \i tables.sql

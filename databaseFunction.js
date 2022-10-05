@@ -35,15 +35,28 @@ module.exports = function DatabaseQuery(db){
     // category table queries
 
     async function addCategory(category){
-        await db.none('insert into categories (category_name) values($1)', category)
+        await db.none('insert into categories (category_name) values($1);', category)
 
     }
 
     async function allFromCategory(){
-        const selectAllCategory = await db.any('select * from categories;')
+        const selectAllCategory = await db.any('select * from categories order by category_name asc;')
         return selectAllCategory;
     }
 
+
+
+
+    // expense table queries
+
+async function addExpense(category,date,moneySpent){
+    await db.none('insert into expenses (category_id, expense_date, daily_expense) values($1,$2,$3);',[category,date,moneySpent])
+}
+
+async function allFromExpense(){
+    const selectAllExpense = await db.any('select * from expenses;')
+    return selectAllExpense;
+}
 
 
     return{
@@ -53,6 +66,9 @@ module.exports = function DatabaseQuery(db){
         getUserByEmailCode,
         // category table
         addCategory,
-        allFromCategory
+        allFromCategory,
+        //expenses table
+        addExpense,
+        allFromExpense
     }
 }
