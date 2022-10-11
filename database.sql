@@ -18,6 +18,13 @@ GRANT ALL PRIVILEGES on TABLE user_reg TO tracker;
 GRANT ALL PRIVILEGES on TABLE categories TO tracker;
 GRANT ALL PRIVILEGES on SEQUENCE categories_id_seq TO tracker;
 
+-- expenses table 
+GRANT ALL PRIVILEGES on TABLE expenses TO tracker;
+GRANT ALL PRIVILEGES on SEQUENCE expenses_id_seq TO tracker;
+
+
+
+
 
 
 

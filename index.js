@@ -68,15 +68,15 @@ app.get('/', async (req,res)=>{
     }
     const categories = await dbFunction.allFromCategory();
     // console.log(categories)
-    const expenseList = await dbFunction.allFromExpense();
+
 
     const joinList = await db.manyOrNone('select * from expenses join categories on expenses.category_id = categories.id;');
 
     const getUser = req.session.user.firstname;
 
-    console.log(joinList);
 
-    console.log(getUser)
+
+    // console.log(getUser)
     res.render('index',{
         // categories : dbFunction.allFromCategory()
         categories,
@@ -87,6 +87,8 @@ app.get('/', async (req,res)=>{
 
 app.post('/addValues',(req, res)=>{
 
+    // const userInSession = req.session.user.id;
+    // console.log(userInSession)
     const {categotyId,dateValue,expense} = req.body;
 
     dbFunction.addExpense(categotyId,dateValue,expense);
@@ -96,6 +98,7 @@ app.post('/addValues',(req, res)=>{
 
 app.post('/addCategories', (req,res)=>{
 
+    
     const {categoryAdd} = req.body;
 
     dbFunction.addCategory(categoryAdd);
